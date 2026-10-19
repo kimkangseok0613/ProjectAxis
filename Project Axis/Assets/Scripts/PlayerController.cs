@@ -4,42 +4,42 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("ÀÌµ¿ ¼³Á¤")]
-    [Tooltip("ÀÏ¹İ ÀÌµ¿ ¼Óµµ")]
+    [Header("ì´ë™ ì„¤ì •")]
+    [Tooltip("ì¼ë°˜ ì´ë™ ì†ë„")]
     [SerializeField] private float walkSpeed = 7f;
 
-    [Tooltip("´Ş¸®±â ¼Óµµ")]
+    [Tooltip("ë‹¬ë¦¬ê¸° ì†ë„")]
     [SerializeField] private float runSpeed = 11f;
 
-    [Tooltip("¿õÅ©·ÈÀ» ¶§ ÀÌµ¿ ¼Óµµ")]
+    [Tooltip("ì›…í¬ë ¸ì„ ë•Œ ì´ë™ ì†ë„")]
     [SerializeField] private float crouchSpeed = 3f;
 
-    [Header("Á¡ÇÁ ¼³Á¤")]
-    [Tooltip("Á¡ÇÁ ³ôÀÌ")]
+    [Header("ì í”„ ì„¤ì •")]
+    [Tooltip("ì í”„ ë†’ì´")]
     [SerializeField] private float jumpHeight = 1.5f;
 
-    [Header("¿õÅ©¸®±â ¼³Á¤")]
-    [Tooltip("¼­ ÀÖÀ» ¶§ Ä¸½¶ ³ôÀÌ")]
+    [Header("ì›…í¬ë¦¬ê¸° ì„¤ì •")]
+    [Tooltip("ì„œ ìˆì„ ë•Œ ìº¡ìŠ ë†’ì´")]
     [SerializeField] private float standingHeight = 2f;
 
-    [Tooltip("¿õÅ©·ÈÀ» ¶§ Ä¸½¶ ³ôÀÌ")]
+    [Tooltip("ì›…í¬ë ¸ì„ ë•Œ ìº¡ìŠ ë†’ì´")]
     [SerializeField] private float crouchingHeight = 1.2f;
 
-    [Header("¹Ù´Ú ÆÇÁ¤ ¼³Á¤")]
-    [Tooltip("ÀÌ °ª ÀÌ»óÀ¸·Î À§ÂÊÀ» ÇâÇÑ ¸é¸¸ ¹Ù´ÚÀ¸·Î ÆÇÁ¤")]
+    [Header("ë°”ë‹¥ íŒì • ì„¤ì •")]
+    [Tooltip("ì´ ê°’ ì´ìƒìœ¼ë¡œ ìœ„ìª½ì„ í–¥í•œ ë©´ë§Œ ë°”ë‹¥ìœ¼ë¡œ íŒì •")]
     [Range(0f, 1f)]
     [SerializeField] private float groundNormalThreshold = 0.6f;
 
-    [Tooltip("¹Ù´Ú¿¡¼­ ¶³¾îÁø Á÷ÈÄ Á¡ÇÁ¸¦ Çã¿ëÇÏ´Â ½Ã°£")]
+    [Tooltip("ë°”ë‹¥ì—ì„œ ë–¨ì–´ì§„ ì§í›„ ì í”„ë¥¼ í—ˆìš©í•˜ëŠ” ì‹œê°„")]
     [SerializeField] private float groundGraceTime = 0.1f;
 
-    [Header("º® Ãæµ¹ ¼³Á¤")]
-    [Tooltip("º®À¸·Î ÆÇÁ¤ÇÒ ¶§ »ç¿ëÇÏ´Â ¼öÁ÷ ¹æÇâ ±âÁØ°ª")]
+    [Header("ë²½ ì¶©ëŒ ì„¤ì •")]
+    [Tooltip("ë²½ìœ¼ë¡œ íŒì •í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ìˆ˜ì§ ë°©í–¥ ê¸°ì¤€ê°’")]
     [Range(0f, 1f)]
     [SerializeField] private float wallNormalThreshold = 0.3f;
 
-    [Header("Ä«¸Ş¶ó ¿¬°á")]
-    [Tooltip("Main Camera¿¡ ¿¬°áµÈ CameraController")]
+    [Header("ì¹´ë©”ë¼ ì—°ê²°")]
+    [Tooltip("Main Cameraì— ì—°ê²°ëœ CameraController")]
     [SerializeField] private CameraController cameraController;
 
     private Rigidbody playerRigidbody;
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         HandleHorizontalMovement();
         HandleJump();
 
-        // ´ÙÀ½ ¹°¸® ÇÁ·¹ÀÓ¿¡¼­ º® Ãæµ¹ Á¤º¸¸¦ ´Ù½Ã ¼öÁıÇÑ´Ù.
+        // ë‹¤ìŒ ë¬¼ë¦¬ í”„ë ˆì„ì—ì„œ ë²½ ì¶©ëŒ ì •ë³´ë¥¼ ë‹¤ì‹œ ìˆ˜ì§‘í•œë‹¤.
         touchingWall = false;
         wallNormal = Vector3.zero;
     }
@@ -138,8 +138,8 @@ public class PlayerController : MonoBehaviour
 
         if (touchingWall)
         {
-            // º® ¾ÈÂÊÀ¸·Î ÇâÇÏ´Â ¼Óµµ¸¸ Á¦°ÅÇÑ´Ù.
-            // º®¿¡¼­ ¸Ö¾îÁö°Å³ª ¿·À¸·Î °¡´Â ÀÔ·ÂÀº À¯ÁöÇÑ´Ù.
+            // ë²½ ì•ˆìª½ìœ¼ë¡œ í–¥í•˜ëŠ” ì†ë„ë§Œ ì œê±°í•œë‹¤.
+            // ë²½ì—ì„œ ë©€ì–´ì§€ê±°ë‚˜ ì˜†ìœ¼ë¡œ ê°€ëŠ” ì…ë ¥ì€ ìœ ì§€í•œë‹¤.
             float intoWall = Vector3.Dot(desiredVelocity, wallNormal);
 
             if (intoWall < 0f)
@@ -148,8 +148,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // X, ZÃà ÀÌµ¿¸¸ Á¦¾îÇÏ°í YÃà ¼Óµµ´Â À¯ÁöÇÑ´Ù.
-        // µû¶ó¼­ °øÁß¿¡¼­´Â Áß·Â¿¡ µû¶ó °è¼Ó ¶³¾îÁø´Ù.
+        // X, Zì¶• ì´ë™ë§Œ ì œì–´í•˜ê³  Yì¶• ì†ë„ëŠ” ìœ ì§€í•œë‹¤.
+        // ë”°ë¼ì„œ ê³µì¤‘ì—ì„œëŠ” ì¤‘ë ¥ì— ë”°ë¼ ê³„ì† ë–¨ì–´ì§„ë‹¤.
         Vector3 velocity = playerRigidbody.linearVelocity;
 
         velocity.x = desiredVelocity.x;
@@ -184,21 +184,21 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 normal = contact.normal;
 
-            // À§ÂÊÀ» ÇâÇÑ ¸é¿¡ ´ê¾ÒÀ» ¶§¸¸ ¹Ù´ÚÀ¸·Î ÆÇÁ¤ÇÑ´Ù.
+            // ìœ„ìª½ì„ í–¥í•œ ë©´ì— ë‹¿ì•˜ì„ ë•Œë§Œ ë°”ë‹¥ìœ¼ë¡œ íŒì •í•œë‹¤.
             if (Vector3.Dot(normal, Vector3.up) >= groundNormalThreshold)
             {
                 lastGroundedTime = Time.time;
                 continue;
             }
 
-            // ¼öÁ÷¿¡ °¡±î¿î ¸éÀº º®À¸·Î Ã³¸®ÇÑ´Ù.
+            // ìˆ˜ì§ì— ê°€ê¹Œìš´ ë©´ì€ ë²½ìœ¼ë¡œ ì²˜ë¦¬í•œë‹¤.
             if (Mathf.Abs(normal.y) <= wallNormalThreshold)
             {
                 touchingWall = true;
                 wallNormal = normal;
 
-                // º®À» ÇâÇÏ´Â ±âÁ¸ ¼Óµµ¸¸ Á¦°ÅÇÑ´Ù.
-                // ¼öÁ÷ ¼Óµµ´Â º¯°æÇÏÁö ¾Ê¾Æ Áß·ÂÀ» À¯ÁöÇÑ´Ù.
+                // ë²½ì„ í–¥í•˜ëŠ” ê¸°ì¡´ ì†ë„ë§Œ ì œê±°í•œë‹¤.
+                // ìˆ˜ì§ ì†ë„ëŠ” ë³€ê²½í•˜ì§€ ì•Šì•„ ì¤‘ë ¥ì„ ìœ ì§€í•œë‹¤.
                 Vector3 velocity = playerRigidbody.linearVelocity;
                 float intoWall = Vector3.Dot(velocity, wallNormal);
 

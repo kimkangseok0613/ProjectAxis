@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class MapRotation : MonoBehaviour
 {
-    [Header("È¸Àü ¼³Á¤")]
-    [Tooltip("Åë·ÎÀÇ È¸Àü ¼Óµµ")]
+    [Header("íšŒì „ ì„¤ì •")]
+    [Tooltip("í†µë¡œì˜ íšŒì „ ì†ë„")]
     [SerializeField] private float rotationSpeed = 180f;
 
-    [Tooltip("Å° ÀÔ·Â ÇÑ ¹ø´ç È¸ÀüÇÏ´Â °¢µµ")]
+    [Tooltip("í‚¤ ì…ë ¥ í•œ ë²ˆë‹¹ íšŒì „í•˜ëŠ” ê°ë„")]
     [SerializeField] private float rotationAngle = 90f;
 
-    [Header("Ä«¸Ş¶ó ¼³Á¤")]
-    [Tooltip("½ÇÁ¦·Î ÇÃ·¹ÀÌ¾î ½ÃÁ¡À» Ç¥½ÃÇÏ´Â Main Camera")]
+    [Header("ì¹´ë©”ë¼ ì„¤ì •")]
+    [Tooltip("ì‹¤ì œë¡œ í”Œë ˆì´ì–´ ì‹œì ì„ í‘œì‹œí•˜ëŠ” Main Camera")]
     [SerializeField] private Camera playerCamera;
 
     private readonly Queue<float> rotationQueue = new Queue<float>();
@@ -31,7 +31,7 @@ public class MapRotation : MonoBehaviour
         if (playerCamera == null)
         {
             Debug.LogError(
-                "MapRotation: Player Camera¸¦ ¿¬°áÇØ¾ß ÇÕ´Ï´Ù.", this);
+                "MapRotation: Player Cameraë¥¼ ì—°ê²°í•´ì•¼ í•©ë‹ˆë‹¤.", this);
         }
     }
 
@@ -48,10 +48,10 @@ public class MapRotation : MonoBehaviour
             return;
         }
 
-        // Ä«¸Ş¶ó°¡ ½ÇÁ¦·Î ¹Ù¶óº¸´Â ¿ùµå ¹æÇâÀ» È®ÀÎÇÑ´Ù.
+        // ì¹´ë©”ë¼ê°€ ì‹¤ì œë¡œ ë°”ë¼ë³´ëŠ” ì›”ë“œ ë°©í–¥ì„ í™•ì¸í•œë‹¤.
         Vector3 cameraForward = playerCamera.transform.forward;
 
-        // »óÇÏ ½Ã¼±Àº Á¦¿ÜÇÏ°í ¼öÆò ¹æÇâ¸¸ ºñ±³ÇÑ´Ù.
+        // ìƒí•˜ ì‹œì„ ì€ ì œì™¸í•˜ê³  ìˆ˜í‰ ë°©í–¥ë§Œ ë¹„êµí•œë‹¤.
         cameraForward.y = 0f;
 
         if (cameraForward.sqrMagnitude < 0.0001f)
@@ -61,10 +61,10 @@ public class MapRotation : MonoBehaviour
 
         cameraForward.Normalize();
 
-        // Z+¸¦ ¹Ù¶óº¸¸é 1, Z-¸¦ ¹Ù¶óº¸¸é -1
+        // Z+ë¥¼ ë°”ë¼ë³´ë©´ 1, Z-ë¥¼ ë°”ë¼ë³´ë©´ -1
         float directionSign = cameraForward.z >= 0f ? 1f : -1f;
 
-        // Q¿Í EÀÇ È¸Àü ¹æÇâÀ» Ä«¸Ş¶ó ¹æÇâ¿¡ ¸ÂÃç ¹İÀüÇÑ´Ù.
+        // Qì™€ Eì˜ íšŒì „ ë°©í–¥ì„ ì¹´ë©”ë¼ ë°©í–¥ì— ë§ì¶° ë°˜ì „í•œë‹¤.
         if (Input.GetKeyDown(KeyCode.Q))
         {
             rotationQueue.Enqueue(rotationAngle * directionSign);
@@ -78,7 +78,7 @@ public class MapRotation : MonoBehaviour
 
     private void RotateMap()
     {
-        // ÇöÀç È¸ÀüÀÌ ³¡³­ µÚ ´ÙÀ½ ÀÔ·ÂÀ» ½ÇÇàÇÑ´Ù.
+        // í˜„ì¬ íšŒì „ì´ ëë‚œ ë’¤ ë‹¤ìŒ ì…ë ¥ì„ ì‹¤í–‰í•œë‹¤.
         if (!isRotating)
         {
             if (rotationQueue.Count == 0)

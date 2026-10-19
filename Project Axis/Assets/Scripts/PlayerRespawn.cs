@@ -3,10 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerRespawn : MonoBehaviour
 {
-    [Header("¸®½ºÆù ¼³Á¤")]
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ ´Ù½Ã »ı¼ºµÉ À§Ä¡")]
+    [Header("ë¦¬ìŠ¤í° ì„¤ì •")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ë‹¤ì‹œ ìƒì„±ë  ìœ„ì¹˜")]
     [SerializeField] private Transform spawnPoint;
-    [Tooltip("ÀÌ ¿ùµå Y ÁÂÇ¥º¸´Ù ¾Æ·¡·Î ¶³¾îÁö¸é ¸®½ºÆù")]
+    [Tooltip("ì´ ì›”ë“œ Y ì¢Œí‘œë³´ë‹¤ ì•„ë˜ë¡œ ë–¨ì–´ì§€ë©´ ë¦¬ìŠ¤í°")]
     [SerializeField] private float fallLimitY = -12f;
 
     private Rigidbody playerRigidbody;
@@ -30,7 +30,7 @@ public class PlayerRespawn : MonoBehaviour
         if (spawnPoint == null)
         {
             Debug.LogError(
-                "PlayerRespawn: Spawn Point¸¦ ¿¬°áÇØ¾ß ÇÕ´Ï´Ù.",
+                "PlayerRespawn: Spawn Pointë¥¼ ì—°ê²°í•´ì•¼ í•©ë‹ˆë‹¤.",
                 this
             );
             return;

@@ -839,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapRotation
   rotationSpeed: 180
   rotationAngle: 90
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 330585545}
 --- !u!1 &1673004309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
   spawnPoint: {fileID: 2074116628}
-  fallLimitY: -30
+  fallLimitY: -12
 --- !u!1 &2074116627
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Ä«¸Ş¶ó ´ë»ó")]
-    [Tooltip("Ä«¸Ş¶ó°¡ µû¶ó°¥ ÇÃ·¹ÀÌ¾î")]
+    [Header("ì¹´ë©”ë¼ ëŒ€ìƒ")]
+    [Tooltip("ì¹´ë©”ë¼ê°€ ë”°ë¼ê°ˆ í”Œë ˆì´ì–´")]
     [SerializeField] private Transform target;
 
-    [Header("¸¶¿ì½º ¼³Á¤")]
-    [Tooltip("¸¶¿ì½º ½ÃÁ¡ È¸Àü °¨µµ")]
+    [Header("ë§ˆìš°ìŠ¤ ì„¤ì •")]
+    [Tooltip("ë§ˆìš°ìŠ¤ ì‹œì  íšŒì „ ê°ë„")]
     [SerializeField] private float mouseSensitivity = 2f;
-    [Tooltip("Ä«¸Ş¶ó°¡ ¾Æ·¡·Î È¸ÀüÇÒ ¼ö ÀÖ´Â ÃÖ¼Ò °¢µµ")]
+    [Tooltip("ì¹´ë©”ë¼ê°€ ì•„ë˜ë¡œ íšŒì „í•  ìˆ˜ ìˆëŠ” ìµœì†Œ ê°ë„")]
     [SerializeField] private float minCameraAngle = -30f;
-    [Tooltip("Ä«¸Ş¶ó°¡ À§·Î È¸ÀüÇÒ ¼ö ÀÖ´Â ÃÖ´ë °¢µµ")]
+    [Tooltip("ì¹´ë©”ë¼ê°€ ìœ„ë¡œ íšŒì „í•  ìˆ˜ ìˆëŠ” ìµœëŒ€ ê°ë„")]
     [SerializeField] private float maxCameraAngle = 60f;
 
-    [Header("Ä«¸Ş¶ó À§Ä¡")]
-    [Tooltip("ÇÃ·¹ÀÌ¾î¿Í Ä«¸Ş¶ó »çÀÌÀÇ °Å¸®")]
+    [Header("ì¹´ë©”ë¼ ìœ„ì¹˜")]
+    [Tooltip("í”Œë ˆì´ì–´ì™€ ì¹´ë©”ë¼ ì‚¬ì´ì˜ ê±°ë¦¬")]
     [SerializeField] private float cameraDistance = 4f;
-    [Tooltip("ÇÃ·¹ÀÌ¾î ±âÁØ Ä«¸Ş¶ó ³ôÀÌ")]
+    [Tooltip("í”Œë ˆì´ì–´ ê¸°ì¤€ ì¹´ë©”ë¼ ë†’ì´")]
     [SerializeField] private float cameraHeight = 1f;
 
-    [Header("Ä«¸Ş¶ó ÃßÀû ¼³Á¤")]
-    [Tooltip("ÀÏ¹İ ÀÌµ¿ ½Ã Ä«¸Ş¶ó ÃßÀû ½Ã°£")]
+    [Header("ì¹´ë©”ë¼ ì¶”ì  ì„¤ì •")]
+    [Tooltip("ì¼ë°˜ ì´ë™ ì‹œ ì¹´ë©”ë¼ ì¶”ì  ì‹œê°„")]
     [SerializeField] private float cameraSmoothTime = 0.15f;
-    [Tooltip("´Ş¸®±â ½Ã Ä«¸Ş¶ó ÃßÀû ½Ã°£")]
+    [Tooltip("ë‹¬ë¦¬ê¸° ì‹œ ì¹´ë©”ë¼ ì¶”ì  ì‹œê°„")]
     [SerializeField] private float runCameraSmoothTime = 0.08f;
 
     private float cameraYaw;
@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
     private Vector3 followVelocity;
     private bool isRunning;
 
-    // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ½ºÅ©¸³Æ®¿¡¼­ »ç¿ëÇÏ´Â Ä«¸Ş¶óÀÇ ¼öÆò È¸Àü°ª
+    // í”Œë ˆì´ì–´ ì´ë™ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì¹´ë©”ë¼ì˜ ìˆ˜í‰ íšŒì „ê°’
     public float CameraYaw => cameraYaw;
 
     public void SetRunning(bool running)
@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
         }
 
         Debug.LogError(
-            "CameraController: Target¿¡ Player¸¦ ¿¬°áÇØ¾ß ÇÕ´Ï´Ù.",
+            "CameraController: Targetì— Playerë¥¼ ì—°ê²°í•´ì•¼ í•©ë‹ˆë‹¤.",
             this
         );
 
